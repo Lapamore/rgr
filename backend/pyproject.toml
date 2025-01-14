@@ -1,0 +1,44 @@
+[tool.poetry]
+name = "text-summarization-api"
+version = "0.1.0"
+description = "Сервис для резюмирования текстов с помощью модели LLM"
+authors = ["Your Name <your.email@example.com>"]
+readme = "README.md"
+packages = [{include = "app", from = "src"}]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+fastapi = "^0.104.1"
+uvicorn = "^0.24.0"
+python-dotenv = "^1.0.0"
+ollama = "^0.1.6"
+pydantic = "^2.5.2"
+pydantic-settings = "^2.1.0"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.4.3"
+httpx = "^0.25.2"
+black = "^23.11.0"
+isort = "^5.12.0"
+flake8 = "^6.1.0"
+mypy = "^1.7.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 88
+target-version = ['py39']
+include = '\.pyi?$'
+
+[tool.isort]
+profile = "black"
+multi-line-output = 3
+line-length = 88
+
+[tool.mypy]
+python-version = "3.9"
+warn-return-any = true
+warn-unused-configs = true
+disallow-untyped-defs = true
